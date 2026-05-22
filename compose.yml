@@ -20,4 +20,10 @@ services:
 networks:
   mynet:
     name: mynet
-    external: true
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: br-docker24
+    ipam:
+      config:
+      - subnet: 172.24.0.0/24
+        gateway: 172.24.0.1
