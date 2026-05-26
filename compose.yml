@@ -12,6 +12,8 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
+    ports:
+      - 8081:80
     networks:
       mynet:
         ipv4_address: 172.24.0.14
