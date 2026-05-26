@@ -12,12 +12,7 @@ Host is running services accessible through swag or localy via wg network
 * update 'default.conf' at '/vlm_docker/dokuwiki/config/nginx/site-confs'. Change note: removed access on port:443. For update run 'bash ./conf_upd.sh';
 * complete the setup by appending install.php to URL
 * add dokuwiki pages to remote location 'dokuwiki/data/pages'
-* add DNAT at host machine dokuwiki able to ping swag at remote vps host. Second line is adding static route, it is an option to DNAT.
-    ```
-        iptables -t nat -A PREROUTING -s 172.24.0.0/24 -d 172.22.0.0/24 -j DNAT --to-destination 172.24.0.13
-        # or
-        ip route add 172.24.0.0/24 dev eth0 via 172.22.0.13
-    ```
+
 
 ### Backup & restore Dokuwiki pages
 

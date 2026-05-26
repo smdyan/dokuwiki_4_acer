@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/dokuwiki:latest            # https://github.com/linuxserver/docker-dokuwiki
     container_name: dokuwiki
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=1001
+      - PGID=1001
       - TZ=europe/moscow
     volumes:
       - /vlm_docker/dokuwiki/config:/config
