@@ -4,8 +4,8 @@ services:
     image: lscr.io/linuxserver/dokuwiki:latest            # https://github.com/linuxserver/docker-dokuwiki
     container_name: dokuwiki
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - TZ=europe/moscow
     volumes:
       - /vlm_docker/dokuwiki/config:/config
@@ -17,6 +17,23 @@ services:
     networks:
       mynet:
         ipv4_address: 172.24.0.14
+    restart: unless-stopped
+
+  transmission:
+    image: lscr.io/linuxserver/transmission:latest
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=europe/moscow
+    volumes:
+      - /vlm_docker/transmission/config:/config
+      - /mnt/segate2t/transmission:/downloads #optional
+      - /mnt/segate2t/transmission/watch:/watch #optional
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
     restart: unless-stopped
 
 networks:
